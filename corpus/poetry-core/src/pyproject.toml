@@ -1,0 +1,163 @@
+[project]
+name = "poetry-core"
+version = "2.5.0"
+description = "Poetry PEP 517 Build Backend"
+authors = [
+  { name = "Sébastien Eustace", email =  "sebastien@eustace.io" }
+]
+maintainers = [
+    { name = "Arun Babu Neelicattu", email = "arun.neelicattu@gmail.com" },
+    { name = "Bjorn Neergaard", email = "bjorn@neersighted.com" },
+    { name = "Branch Vincent", email = "branchevincent@gmail.com" },
+    { name = "Randy Döring", email = "radoering.poetry@gmail.com" },
+    { name = "Steph Samson", email = "hello@stephsamson.com" },
+    { name = "finswimmer", email = "finswimmer77@gmail.com" },
+    { name = "Bartosz Sokorski", email = "b.sokorski@gmail.com" },
+]
+license = "MIT"
+requires-python = ">=3.10, <4.0"
+readme = "README.md"
+keywords = ["packaging", "dependency", "poetry"]
+dynamic = ["classifiers"]
+
+[project.urls]
+homepage = "https://github.com/python-poetry/poetry-core"
+repository = "https://github.com/python-poetry/poetry-core"
+"Bug Tracker" = "https://github.com/python-poetry/poetry/issues"
+
+
+[tool.poetry]
+requires-poetry = ">=2.0"
+packages = [
+  { include = "poetry", from = "src" },
+]
+include = [{ path = "tests", format = "sdist" }]
+classifiers = [
+  "Topic :: Software Development :: Build Tools",
+  "Topic :: Software Development :: Libraries :: Python Modules",
+]
+
+
+[tool.poetry.group.dev.dependencies]
+pre-commit = ">=2.15.0"
+vendoring = ">=1.0"
+
+[tool.poetry.group.test.dependencies]
+pytest = ">=9.0"
+pytest-cov = ">=3.0.0"
+pytest-mock = ">=3.10"
+build = ">=0.10.0"
+setuptools = ">=60"
+tomli-w = "^1.0.0"
+virtualenv = ">=20.21"
+trove-classifiers = ">=2022.5.19"
+
+[tool.poetry.group.typing.dependencies]
+# mypy 1.19 introduces a dependency on librt, which does not support PyPy
+# It is recommended to run mypy only on CPython, see https://github.com/mypyc/librt/issues/16
+mypy = { version = ">=1.18.0", markers = "platform_python_implementation != 'PyPy'" }
+types-setuptools = ">=57.4.14"
+
+[tool.ruff]
+extend-exclude = [
+  "src/poetry/core/_vendor/*",
+  "tests/**/fixtures/*",
+]
+fix = true
+line-length = 88
+src = ["src"]
+
+[tool.ruff.lint]
+extend-select = [
+  "B",   # flake8-bugbear
+  "C4",  # flake8-comprehensions
+  "ERA", # flake8-eradicate/eradicate
+  "I",   # isort
+  "N",   # pep8-naming
+  "PIE", # flake8-pie
+  "PGH", # pygrep
+  "RUF", # ruff checks
+  "SIM", # flake8-simplify
+  "T20", # flake8-print
+  "TC", # flake8-type-checking
+  "TID", # flake8-tidy-imports
+  "UP",  # pyupgrade
+  "PTH", # flake8-use-pathlib
+]
+ignore = [
+  "B904", # use 'raise ... from err'
+  "B905", # use explicit 'strict=' parameter with 'zip()'
+]
+extend-safe-fixes = [
+  "TC", # move import from and to TYPE_CHECKING blocks
+]
+unfixable = [
+  "ERA", # do not autoremove commented out code
+]
+typing-extensions = false
+
+[tool.ruff.lint.per-file-ignores]
+"tests/masonry/builders/test_sdist.py" = [
+  "S102",  # allow exec for sdist tests
+]
+
+[tool.ruff.lint.flake8-tidy-imports]
+ban-relative-imports = "all"
+
+[tool.ruff.lint.isort]
+force-single-line = true
+lines-between-types = 1
+lines-after-imports = 2
+known-first-party = ["poetry.core"]
+known-third-party = ["poetry.core._vendor"]
+required-imports = ["from __future__ import annotations"]
+
+[tool.mypy]
+files = "src, tests"
+mypy_path = "src"
+namespace_packages = true
+explicit_package_bases = true
+show_error_codes = true
+strict = true
+enable_error_code = [
+  "ignore-without-code",
+  "redundant-expr",
+  "truthy-bool",
+]
+exclude = [
+  "src/poetry/core/_vendor",
+  "tests/fixtures",
+  "tests/masonry/builders/fixtures",
+]
+
+[[tool.mypy.overrides]]
+module = [
+  'fastjsonschema.*',
+  'lark.*',
+  'virtualenv.*',
+]
+ignore_missing_imports = true
+
+[tool.pytest]
+strict = true
+
+[tool.vendoring]
+destination = "src/poetry/core/_vendor/"
+requirements = "src/poetry/core/_vendor/vendor.txt"
+namespace = ""
+
+protected-files = ["vendor.txt"]
+patches-dir = "vendors/patches"
+
+[tool.vendoring.transformations]
+drop = [
+  "bin/",
+  "*.so",
+  "typing.*",
+  "*/tests/",
+]
+
+[build-system]
+requires = []
+build-backend = "poetry.core.masonry.api"
+backend-path = ["src"]

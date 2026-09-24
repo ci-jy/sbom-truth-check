@@ -1,0 +1,40 @@
+{
+  "spdxVersion": "SPDX-2.3",
+  "dataLicense": "CC0-1.0",
+  "SPDXID": "SPDXRef-DOCUMENT",
+  "name": "corpus/tomlkit/src",
+  "documentNamespace": "http://trivy.dev/filesystem/corpus/tomlkit/src-4588e2a5-5549-4c12-a749-b7daf03e31fd",
+  "creationInfo": {
+    "creators": [
+      "Organization: aquasecurity",
+      "Tool: trivy-0.75.0"
+    ],
+    "created": "2026-10-09T08:33:06Z"
+  },
+  "packages": [
+    {
+      "name": "corpus/tomlkit/src",
+      "SPDXID": "SPDXRef-Filesystem-dbee1f8e8f2a6319",
+      "downloadLocation": "NONE",
+      "filesAnalyzed": false,
+      "licenseConcluded": "NOASSERTION",
+      "licenseDeclared": "NOASSERTION",
+      "primaryPackagePurpose": "SOURCE",
+      "annotations": [
+        {
+          "annotator": "Tool: trivy-0.75.0",
+          "annotationDate": "2026-10-09T08:33:06Z",
+          "annotationType": "OTHER",
+          "comment": "SchemaVersion: 2"
+        }
+      ]
+    }
+  ],
+  "relationships": [
+    {
+      "spdxElementId": "SPDXRef-DOCUMENT",
+      "relatedSpdxElement": "SPDXRef-Filesystem-dbee1f8e8f2a6319",
+      "relationshipType": "DESCRIBES"
+    }
+  ]
+}

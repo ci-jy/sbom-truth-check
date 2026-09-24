@@ -1,0 +1,95 @@
+{
+  "$schema": "http://cyclonedx.org/schema/bom-1.7.schema.json",
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.7",
+  "serialNumber": "urn:uuid:147ac695-d3a0-4496-88ef-c842c3445449",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-10-09T08:33:08+00:00",
+    "tools": {
+      "components": [
+        {
+          "type": "application",
+          "manufacturer": {
+            "name": "Aqua Security Software Ltd."
+          },
+          "group": "aquasecurity",
+          "name": "trivy",
+          "version": "0.75.0"
+        }
+      ]
+    },
+    "component": {
+      "bom-ref": "2874ade7-13cf-479c-bbfe-ce4bc4206379",
+      "type": "application",
+      "name": "corpus/javapoet/src",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:SchemaVersion",
+          "value": "2"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "bom-ref": "3153f277-0577-4102-b0ed-4d585d31ec52",
+      "type": "application",
+      "name": "pom.xml",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:Class",
+          "value": "lang-pkgs"
+        },
+        {
+          "name": "aquasecurity:trivy:Type",
+          "value": "pom"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:maven/com.squareup/javapoet@1.14.0-SNAPSHOT",
+      "type": "library",
+      "group": "com.squareup",
+      "name": "javapoet",
+      "version": "1.14.0-SNAPSHOT",
+      "licenses": [
+        {
+          "license": {
+            "id": "Apache-2.0"
+          }
+        }
+      ],
+      "purl": "pkg:maven/com.squareup/javapoet@1.14.0-SNAPSHOT",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "com.squareup:javapoet:1.14.0-SNAPSHOT::8628e655"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "pom"
+        }
+      ]
+    }
+  ],
+  "dependencies": [
+    {
+      "ref": "2874ade7-13cf-479c-bbfe-ce4bc4206379",
+      "dependsOn": [
+        "3153f277-0577-4102-b0ed-4d585d31ec52"
+      ]
+    },
+    {
+      "ref": "3153f277-0577-4102-b0ed-4d585d31ec52",
+      "dependsOn": [
+        "pkg:maven/com.squareup/javapoet@1.14.0-SNAPSHOT"
+      ]
+    },
+    {
+      "ref": "pkg:maven/com.squareup/javapoet@1.14.0-SNAPSHOT",
+      "dependsOn": []
+    }
+  ],
+  "vulnerabilities": []
+}

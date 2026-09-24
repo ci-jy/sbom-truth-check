@@ -1,0 +1,95 @@
+{
+  "$schema": "http://cyclonedx.org/schema/bom-1.7.schema.json",
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.7",
+  "serialNumber": "urn:uuid:e8108429-3859-4516-bed4-f83369dc6b0c",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-10-09T08:33:09+00:00",
+    "tools": {
+      "components": [
+        {
+          "type": "application",
+          "manufacturer": {
+            "name": "Aqua Security Software Ltd."
+          },
+          "group": "aquasecurity",
+          "name": "trivy",
+          "version": "0.75.0"
+        }
+      ]
+    },
+    "component": {
+      "bom-ref": "f5f42359-012b-4526-aa96-62d152131c78",
+      "type": "application",
+      "name": "corpus/commons-io/src",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:SchemaVersion",
+          "value": "2"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "bom-ref": "0d7e8f2a-6461-4127-91e5-c8fcc7b37a98",
+      "type": "application",
+      "name": "pom.xml",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:Class",
+          "value": "lang-pkgs"
+        },
+        {
+          "name": "aquasecurity:trivy:Type",
+          "value": "pom"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:maven/commons-io/commons-io@2.23.0-SNAPSHOT",
+      "type": "library",
+      "group": "commons-io",
+      "name": "commons-io",
+      "version": "2.23.0-SNAPSHOT",
+      "licenses": [
+        {
+          "license": {
+            "id": "Apache-2.0"
+          }
+        }
+      ],
+      "purl": "pkg:maven/commons-io/commons-io@2.23.0-SNAPSHOT",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "commons-io:commons-io:2.23.0-SNAPSHOT::5b42f4f0"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "pom"
+        }
+      ]
+    }
+  ],
+  "dependencies": [
+    {
+      "ref": "0d7e8f2a-6461-4127-91e5-c8fcc7b37a98",
+      "dependsOn": [
+        "pkg:maven/commons-io/commons-io@2.23.0-SNAPSHOT"
+      ]
+    },
+    {
+      "ref": "f5f42359-012b-4526-aa96-62d152131c78",
+      "dependsOn": [
+        "0d7e8f2a-6461-4127-91e5-c8fcc7b37a98"
+      ]
+    },
+    {
+      "ref": "pkg:maven/commons-io/commons-io@2.23.0-SNAPSHOT",
+      "dependsOn": []
+    }
+  ],
+  "vulnerabilities": []
+}

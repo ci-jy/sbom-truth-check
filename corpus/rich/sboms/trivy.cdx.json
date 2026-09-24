@@ -1,0 +1,648 @@
+{
+  "$schema": "http://cyclonedx.org/schema/bom-1.7.schema.json",
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.7",
+  "serialNumber": "urn:uuid:6de4eaab-cb2f-44c1-ba19-f1954ab684d8",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-10-09T08:32:46+00:00",
+    "tools": {
+      "components": [
+        {
+          "type": "application",
+          "manufacturer": {
+            "name": "Aqua Security Software Ltd."
+          },
+          "group": "aquasecurity",
+          "name": "trivy",
+          "version": "0.75.0"
+        }
+      ]
+    },
+    "component": {
+      "bom-ref": "7f26e502-d69a-4689-b1dc-92f2f674e6d5",
+      "type": "application",
+      "name": "corpus/rich/src",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:SchemaVersion",
+          "value": "2"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "bom-ref": "fd63d069-ef44-47ee-8a9d-29fec3659eaf",
+      "type": "application",
+      "name": "poetry.lock",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:Class",
+          "value": "lang-pkgs"
+        },
+        {
+          "name": "aquasecurity:trivy:Type",
+          "value": "poetry"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:pypi/appnope@0.1.4",
+      "type": "library",
+      "name": "appnope",
+      "version": "0.1.4",
+      "purl": "pkg:pypi/appnope@0.1.4",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "appnope@0.1.4"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "poetry"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:pypi/asttokens@3.0.0",
+      "type": "library",
+      "name": "asttokens",
+      "version": "3.0.0",
+      "purl": "pkg:pypi/asttokens@3.0.0",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "asttokens@3.0.0"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "poetry"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:pypi/backcall@0.2.0",
+      "type": "library",
+      "name": "backcall",
+      "version": "0.2.0",
+      "purl": "pkg:pypi/backcall@0.2.0",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "backcall@0.2.0"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "poetry"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:pypi/colorama@0.4.6",
+      "type": "library",
+      "name": "colorama",
+      "version": "0.4.6",
+      "purl": "pkg:pypi/colorama@0.4.6",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "colorama@0.4.6"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "poetry"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:pypi/comm@0.2.3",
+      "type": "library",
+      "name": "comm",
+      "version": "0.2.3",
+      "purl": "pkg:pypi/comm@0.2.3",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "comm@0.2.3"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "poetry"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:pypi/decorator@5.2.1",
+      "type": "library",
+      "name": "decorator",
+      "version": "5.2.1",
+      "purl": "pkg:pypi/decorator@5.2.1",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "decorator@5.2.1"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "poetry"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:pypi/executing@2.2.1",
+      "type": "library",
+      "name": "executing",
+      "version": "2.2.1",
+      "purl": "pkg:pypi/executing@2.2.1",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "executing@2.2.1"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "poetry"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:pypi/ipython@8.12.3",
+      "type": "library",
+      "name": "ipython",
+      "version": "8.12.3",
+      "purl": "pkg:pypi/ipython@8.12.3",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "ipython@8.12.3"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "poetry"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:pypi/ipywidgets@8.1.7",
+      "type": "library",
+      "name": "ipywidgets",
+      "version": "8.1.7",
+      "purl": "pkg:pypi/ipywidgets@8.1.7",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "ipywidgets@8.1.7"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "poetry"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:pypi/jedi@0.19.2",
+      "type": "library",
+      "name": "jedi",
+      "version": "0.19.2",
+      "purl": "pkg:pypi/jedi@0.19.2",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "jedi@0.19.2"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "poetry"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:pypi/jupyterlab-widgets@3.0.15",
+      "type": "library",
+      "name": "jupyterlab-widgets",
+      "version": "3.0.15",
+      "purl": "pkg:pypi/jupyterlab-widgets@3.0.15",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "jupyterlab-widgets@3.0.15"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "poetry"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:pypi/markdown-it-py@3.0.0",
+      "type": "library",
+      "name": "markdown-it-py",
+      "version": "3.0.0",
+      "purl": "pkg:pypi/markdown-it-py@3.0.0",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "markdown-it-py@3.0.0"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "poetry"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:pypi/matplotlib-inline@0.1.7",
+      "type": "library",
+      "name": "matplotlib-inline",
+      "version": "0.1.7",
+      "purl": "pkg:pypi/matplotlib-inline@0.1.7",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "matplotlib-inline@0.1.7"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "poetry"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:pypi/mdurl@0.1.2",
+      "type": "library",
+      "name": "mdurl",
+      "version": "0.1.2",
+      "purl": "pkg:pypi/mdurl@0.1.2",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "mdurl@0.1.2"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "poetry"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:pypi/parso@0.8.5",
+      "type": "library",
+      "name": "parso",
+      "version": "0.8.5",
+      "purl": "pkg:pypi/parso@0.8.5",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "parso@0.8.5"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "poetry"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:pypi/pexpect@4.9.0",
+      "type": "library",
+      "name": "pexpect",
+      "version": "4.9.0",
+      "purl": "pkg:pypi/pexpect@4.9.0",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "pexpect@4.9.0"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "poetry"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:pypi/pickleshare@0.7.5",
+      "type": "library",
+      "name": "pickleshare",
+      "version": "0.7.5",
+      "purl": "pkg:pypi/pickleshare@0.7.5",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "pickleshare@0.7.5"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "poetry"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:pypi/prompt-toolkit@3.0.52",
+      "type": "library",
+      "name": "prompt-toolkit",
+      "version": "3.0.52",
+      "purl": "pkg:pypi/prompt-toolkit@3.0.52",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "prompt-toolkit@3.0.52"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "poetry"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:pypi/ptyprocess@0.7.0",
+      "type": "library",
+      "name": "ptyprocess",
+      "version": "0.7.0",
+      "purl": "pkg:pypi/ptyprocess@0.7.0",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "ptyprocess@0.7.0"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "poetry"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:pypi/pure-eval@0.2.3",
+      "type": "library",
+      "name": "pure-eval",
+      "version": "0.2.3",
+      "purl": "pkg:pypi/pure-eval@0.2.3",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "pure-eval@0.2.3"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "poetry"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:pypi/pygments@2.19.2",
+      "type": "library",
+      "name": "pygments",
+      "version": "2.19.2",
+      "purl": "pkg:pypi/pygments@2.19.2",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "pygments@2.19.2"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "poetry"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:pypi/stack-data@0.6.3",
+      "type": "library",
+      "name": "stack-data",
+      "version": "0.6.3",
+      "purl": "pkg:pypi/stack-data@0.6.3",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "stack-data@0.6.3"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "poetry"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:pypi/traitlets@5.14.3",
+      "type": "library",
+      "name": "traitlets",
+      "version": "5.14.3",
+      "purl": "pkg:pypi/traitlets@5.14.3",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "traitlets@5.14.3"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "poetry"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:pypi/typing-extensions@4.13.2",
+      "type": "library",
+      "name": "typing-extensions",
+      "version": "4.13.2",
+      "purl": "pkg:pypi/typing-extensions@4.13.2",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "typing-extensions@4.13.2"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "poetry"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:pypi/wcwidth@0.2.14",
+      "type": "library",
+      "name": "wcwidth",
+      "version": "0.2.14",
+      "purl": "pkg:pypi/wcwidth@0.2.14",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "wcwidth@0.2.14"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "poetry"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:pypi/widgetsnbextension@4.0.14",
+      "type": "library",
+      "name": "widgetsnbextension",
+      "version": "4.0.14",
+      "purl": "pkg:pypi/widgetsnbextension@4.0.14",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "widgetsnbextension@4.0.14"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "poetry"
+        }
+      ]
+    }
+  ],
+  "dependencies": [
+    {
+      "ref": "7f26e502-d69a-4689-b1dc-92f2f674e6d5",
+      "dependsOn": [
+        "fd63d069-ef44-47ee-8a9d-29fec3659eaf"
+      ]
+    },
+    {
+      "ref": "fd63d069-ef44-47ee-8a9d-29fec3659eaf",
+      "dependsOn": [
+        "pkg:pypi/ipywidgets@8.1.7",
+        "pkg:pypi/markdown-it-py@3.0.0",
+        "pkg:pypi/pygments@2.19.2"
+      ]
+    },
+    {
+      "ref": "pkg:pypi/appnope@0.1.4",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:pypi/asttokens@3.0.0",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:pypi/backcall@0.2.0",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:pypi/colorama@0.4.6",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:pypi/comm@0.2.3",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:pypi/decorator@5.2.1",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:pypi/executing@2.2.1",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:pypi/ipython@8.12.3",
+      "dependsOn": [
+        "pkg:pypi/appnope@0.1.4",
+        "pkg:pypi/backcall@0.2.0",
+        "pkg:pypi/colorama@0.4.6",
+        "pkg:pypi/decorator@5.2.1",
+        "pkg:pypi/jedi@0.19.2",
+        "pkg:pypi/matplotlib-inline@0.1.7",
+        "pkg:pypi/pexpect@4.9.0",
+        "pkg:pypi/pickleshare@0.7.5",
+        "pkg:pypi/prompt-toolkit@3.0.52",
+        "pkg:pypi/pygments@2.19.2",
+        "pkg:pypi/stack-data@0.6.3",
+        "pkg:pypi/traitlets@5.14.3",
+        "pkg:pypi/typing-extensions@4.13.2"
+      ]
+    },
+    {
+      "ref": "pkg:pypi/ipywidgets@8.1.7",
+      "dependsOn": [
+        "pkg:pypi/comm@0.2.3",
+        "pkg:pypi/ipython@8.12.3",
+        "pkg:pypi/jupyterlab-widgets@3.0.15",
+        "pkg:pypi/traitlets@5.14.3",
+        "pkg:pypi/widgetsnbextension@4.0.14"
+      ]
+    },
+    {
+      "ref": "pkg:pypi/jedi@0.19.2",
+      "dependsOn": [
+        "pkg:pypi/parso@0.8.5"
+      ]
+    },
+    {
+      "ref": "pkg:pypi/jupyterlab-widgets@3.0.15",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:pypi/markdown-it-py@3.0.0",
+      "dependsOn": [
+        "pkg:pypi/mdurl@0.1.2"
+      ]
+    },
+    {
+      "ref": "pkg:pypi/matplotlib-inline@0.1.7",
+      "dependsOn": [
+        "pkg:pypi/traitlets@5.14.3"
+      ]
+    },
+    {
+      "ref": "pkg:pypi/mdurl@0.1.2",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:pypi/parso@0.8.5",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:pypi/pexpect@4.9.0",
+      "dependsOn": [
+        "pkg:pypi/ptyprocess@0.7.0"
+      ]
+    },
+    {
+      "ref": "pkg:pypi/pickleshare@0.7.5",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:pypi/prompt-toolkit@3.0.52",
+      "dependsOn": [
+        "pkg:pypi/wcwidth@0.2.14"
+      ]
+    },
+    {
+      "ref": "pkg:pypi/ptyprocess@0.7.0",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:pypi/pure-eval@0.2.3",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:pypi/pygments@2.19.2",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:pypi/stack-data@0.6.3",
+      "dependsOn": [
+        "pkg:pypi/asttokens@3.0.0",
+        "pkg:pypi/executing@2.2.1",
+        "pkg:pypi/pure-eval@0.2.3"
+      ]
+    },
+    {
+      "ref": "pkg:pypi/traitlets@5.14.3",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:pypi/typing-extensions@4.13.2",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:pypi/wcwidth@0.2.14",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:pypi/widgetsnbextension@4.0.14",
+      "dependsOn": []
+    }
+  ],
+  "vulnerabilities": []
+}

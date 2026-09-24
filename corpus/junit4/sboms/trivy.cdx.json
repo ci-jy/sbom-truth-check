@@ -1,0 +1,126 @@
+{
+  "$schema": "http://cyclonedx.org/schema/bom-1.7.schema.json",
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.7",
+  "serialNumber": "urn:uuid:5561a990-d766-4e3b-b19a-ec5a4e56ee21",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-10-09T08:33:11+00:00",
+    "tools": {
+      "components": [
+        {
+          "type": "application",
+          "manufacturer": {
+            "name": "Aqua Security Software Ltd."
+          },
+          "group": "aquasecurity",
+          "name": "trivy",
+          "version": "0.75.0"
+        }
+      ]
+    },
+    "component": {
+      "bom-ref": "70f28893-e40b-45bb-bee0-bb19dab84c1d",
+      "type": "application",
+      "name": "corpus/junit4/src",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:SchemaVersion",
+          "value": "2"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "bom-ref": "971af8ed-dd4f-4258-aae2-c0390fc421c2",
+      "type": "application",
+      "name": "pom.xml",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:Class",
+          "value": "lang-pkgs"
+        },
+        {
+          "name": "aquasecurity:trivy:Type",
+          "value": "pom"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:maven/junit/junit@4.13.3-SNAPSHOT",
+      "type": "library",
+      "group": "junit",
+      "name": "junit",
+      "version": "4.13.3-SNAPSHOT",
+      "licenses": [
+        {
+          "license": {
+            "id": "EPL-1.0"
+          }
+        }
+      ],
+      "purl": "pkg:maven/junit/junit@4.13.3-SNAPSHOT",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "junit:junit:4.13.3-SNAPSHOT::8a849342"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "pom"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:maven/org.hamcrest/hamcrest-core@1.3",
+      "type": "library",
+      "group": "org.hamcrest",
+      "name": "hamcrest-core",
+      "version": "1.3",
+      "licenses": [
+        {
+          "license": {
+            "id": "BSD-3-Clause"
+          }
+        }
+      ],
+      "purl": "pkg:maven/org.hamcrest/hamcrest-core@1.3",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "org.hamcrest:hamcrest-core:1.3::f2a92b22"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "pom"
+        }
+      ]
+    }
+  ],
+  "dependencies": [
+    {
+      "ref": "70f28893-e40b-45bb-bee0-bb19dab84c1d",
+      "dependsOn": [
+        "971af8ed-dd4f-4258-aae2-c0390fc421c2"
+      ]
+    },
+    {
+      "ref": "971af8ed-dd4f-4258-aae2-c0390fc421c2",
+      "dependsOn": [
+        "pkg:maven/junit/junit@4.13.3-SNAPSHOT"
+      ]
+    },
+    {
+      "ref": "pkg:maven/junit/junit@4.13.3-SNAPSHOT",
+      "dependsOn": [
+        "pkg:maven/org.hamcrest/hamcrest-core@1.3"
+      ]
+    },
+    {
+      "ref": "pkg:maven/org.hamcrest/hamcrest-core@1.3",
+      "dependsOn": []
+    }
+  ],
+  "vulnerabilities": []
+}

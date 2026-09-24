@@ -1,0 +1,5 @@
+  npm error invalid: eslint@10.5.0 /home/ubuntu/projects/internship-projects/sbom-truth-check/corpus/winston/src/node_modules/eslint
+  npm error A complete log of this run can be found in: /home/ubuntu/.npm/_logs/2026-10-09T08_32_37_695Z-debug-0.log
+  
+
+Error: npm-ls exited with errors: 1 noSignal

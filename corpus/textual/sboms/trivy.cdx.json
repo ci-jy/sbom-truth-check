@@ -1,0 +1,622 @@
+{
+  "$schema": "http://cyclonedx.org/schema/bom-1.7.schema.json",
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.7",
+  "serialNumber": "urn:uuid:af0c30b6-4f87-4113-b803-06c8294c3509",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-10-09T08:33:04+00:00",
+    "tools": {
+      "components": [
+        {
+          "type": "application",
+          "manufacturer": {
+            "name": "Aqua Security Software Ltd."
+          },
+          "group": "aquasecurity",
+          "name": "trivy",
+          "version": "0.75.0"
+        }
+      ]
+    },
+    "component": {
+      "bom-ref": "3a26861e-2e6c-4570-bd1e-3dc53b47ed2f",
+      "type": "application",
+      "name": "corpus/textual/src",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:SchemaVersion",
+          "value": "2"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "bom-ref": "1c5c7d28-0198-4098-a4e7-31c80fbe47b8",
+      "type": "application",
+      "name": "poetry.lock",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:Class",
+          "value": "lang-pkgs"
+        },
+        {
+          "name": "aquasecurity:trivy:Type",
+          "value": "poetry"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:pypi/linkify-it-py@2.0.3",
+      "type": "library",
+      "name": "linkify-it-py",
+      "version": "2.0.3",
+      "purl": "pkg:pypi/linkify-it-py@2.0.3",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "linkify-it-py@2.0.3"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "poetry"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:pypi/markdown-it-py@3.0.0",
+      "type": "library",
+      "name": "markdown-it-py",
+      "version": "3.0.0",
+      "purl": "pkg:pypi/markdown-it-py@3.0.0",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "markdown-it-py@3.0.0"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "poetry"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:pypi/mdit-py-plugins@0.4.2",
+      "type": "library",
+      "name": "mdit-py-plugins",
+      "version": "0.4.2",
+      "purl": "pkg:pypi/mdit-py-plugins@0.4.2",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "mdit-py-plugins@0.4.2"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "poetry"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:pypi/mdurl@0.1.2",
+      "type": "library",
+      "name": "mdurl",
+      "version": "0.1.2",
+      "purl": "pkg:pypi/mdurl@0.1.2",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "mdurl@0.1.2"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "poetry"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:pypi/platformdirs@4.4.0",
+      "type": "library",
+      "name": "platformdirs",
+      "version": "4.4.0",
+      "purl": "pkg:pypi/platformdirs@4.4.0",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "platformdirs@4.4.0"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "poetry"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:pypi/pygments@2.19.2",
+      "type": "library",
+      "name": "pygments",
+      "version": "2.19.2",
+      "purl": "pkg:pypi/pygments@2.19.2",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "pygments@2.19.2"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "poetry"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:pypi/rich@14.2.0",
+      "type": "library",
+      "name": "rich",
+      "version": "14.2.0",
+      "purl": "pkg:pypi/rich@14.2.0",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "rich@14.2.0"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "poetry"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:pypi/tree-sitter-bash@0.25.0",
+      "type": "library",
+      "name": "tree-sitter-bash",
+      "version": "0.25.0",
+      "purl": "pkg:pypi/tree-sitter-bash@0.25.0",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "tree-sitter-bash@0.25.0"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "poetry"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:pypi/tree-sitter-css@0.25.0",
+      "type": "library",
+      "name": "tree-sitter-css",
+      "version": "0.25.0",
+      "purl": "pkg:pypi/tree-sitter-css@0.25.0",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "tree-sitter-css@0.25.0"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "poetry"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:pypi/tree-sitter-go@0.25.0",
+      "type": "library",
+      "name": "tree-sitter-go",
+      "version": "0.25.0",
+      "purl": "pkg:pypi/tree-sitter-go@0.25.0",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "tree-sitter-go@0.25.0"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "poetry"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:pypi/tree-sitter-html@0.23.2",
+      "type": "library",
+      "name": "tree-sitter-html",
+      "version": "0.23.2",
+      "purl": "pkg:pypi/tree-sitter-html@0.23.2",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "tree-sitter-html@0.23.2"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "poetry"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:pypi/tree-sitter-java@0.23.5",
+      "type": "library",
+      "name": "tree-sitter-java",
+      "version": "0.23.5",
+      "purl": "pkg:pypi/tree-sitter-java@0.23.5",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "tree-sitter-java@0.23.5"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "poetry"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:pypi/tree-sitter-javascript@0.25.0",
+      "type": "library",
+      "name": "tree-sitter-javascript",
+      "version": "0.25.0",
+      "purl": "pkg:pypi/tree-sitter-javascript@0.25.0",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "tree-sitter-javascript@0.25.0"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "poetry"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:pypi/tree-sitter-json@0.24.8",
+      "type": "library",
+      "name": "tree-sitter-json",
+      "version": "0.24.8",
+      "purl": "pkg:pypi/tree-sitter-json@0.24.8",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "tree-sitter-json@0.24.8"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "poetry"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:pypi/tree-sitter-markdown@0.5.1",
+      "type": "library",
+      "name": "tree-sitter-markdown",
+      "version": "0.5.1",
+      "purl": "pkg:pypi/tree-sitter-markdown@0.5.1",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "tree-sitter-markdown@0.5.1"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "poetry"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:pypi/tree-sitter-python@0.25.0",
+      "type": "library",
+      "name": "tree-sitter-python",
+      "version": "0.25.0",
+      "purl": "pkg:pypi/tree-sitter-python@0.25.0",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "tree-sitter-python@0.25.0"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "poetry"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:pypi/tree-sitter-regex@0.25.0",
+      "type": "library",
+      "name": "tree-sitter-regex",
+      "version": "0.25.0",
+      "purl": "pkg:pypi/tree-sitter-regex@0.25.0",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "tree-sitter-regex@0.25.0"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "poetry"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:pypi/tree-sitter-rust@0.24.0",
+      "type": "library",
+      "name": "tree-sitter-rust",
+      "version": "0.24.0",
+      "purl": "pkg:pypi/tree-sitter-rust@0.24.0",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "tree-sitter-rust@0.24.0"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "poetry"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:pypi/tree-sitter-sql@0.3.11",
+      "type": "library",
+      "name": "tree-sitter-sql",
+      "version": "0.3.11",
+      "purl": "pkg:pypi/tree-sitter-sql@0.3.11",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "tree-sitter-sql@0.3.11"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "poetry"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:pypi/tree-sitter-toml@0.7.0",
+      "type": "library",
+      "name": "tree-sitter-toml",
+      "version": "0.7.0",
+      "purl": "pkg:pypi/tree-sitter-toml@0.7.0",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "tree-sitter-toml@0.7.0"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "poetry"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:pypi/tree-sitter-xml@0.7.0",
+      "type": "library",
+      "name": "tree-sitter-xml",
+      "version": "0.7.0",
+      "purl": "pkg:pypi/tree-sitter-xml@0.7.0",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "tree-sitter-xml@0.7.0"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "poetry"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:pypi/tree-sitter-yaml@0.7.2",
+      "type": "library",
+      "name": "tree-sitter-yaml",
+      "version": "0.7.2",
+      "purl": "pkg:pypi/tree-sitter-yaml@0.7.2",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "tree-sitter-yaml@0.7.2"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "poetry"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:pypi/tree-sitter@0.25.2",
+      "type": "library",
+      "name": "tree-sitter",
+      "version": "0.25.2",
+      "purl": "pkg:pypi/tree-sitter@0.25.2",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "tree-sitter@0.25.2"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "poetry"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:pypi/typing-extensions@4.15.0",
+      "type": "library",
+      "name": "typing-extensions",
+      "version": "4.15.0",
+      "purl": "pkg:pypi/typing-extensions@4.15.0",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "typing-extensions@4.15.0"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "poetry"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:pypi/uc-micro-py@1.0.3",
+      "type": "library",
+      "name": "uc-micro-py",
+      "version": "1.0.3",
+      "purl": "pkg:pypi/uc-micro-py@1.0.3",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "uc-micro-py@1.0.3"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "poetry"
+        }
+      ]
+    }
+  ],
+  "dependencies": [
+    {
+      "ref": "1c5c7d28-0198-4098-a4e7-31c80fbe47b8",
+      "dependsOn": [
+        "pkg:pypi/markdown-it-py@3.0.0",
+        "pkg:pypi/mdit-py-plugins@0.4.2",
+        "pkg:pypi/platformdirs@4.4.0",
+        "pkg:pypi/pygments@2.19.2",
+        "pkg:pypi/rich@14.2.0",
+        "pkg:pypi/tree-sitter-bash@0.25.0",
+        "pkg:pypi/tree-sitter-css@0.25.0",
+        "pkg:pypi/tree-sitter-go@0.25.0",
+        "pkg:pypi/tree-sitter-html@0.23.2",
+        "pkg:pypi/tree-sitter-java@0.23.5",
+        "pkg:pypi/tree-sitter-javascript@0.25.0",
+        "pkg:pypi/tree-sitter-json@0.24.8",
+        "pkg:pypi/tree-sitter-markdown@0.5.1",
+        "pkg:pypi/tree-sitter-python@0.25.0",
+        "pkg:pypi/tree-sitter-regex@0.25.0",
+        "pkg:pypi/tree-sitter-rust@0.24.0",
+        "pkg:pypi/tree-sitter-sql@0.3.11",
+        "pkg:pypi/tree-sitter-toml@0.7.0",
+        "pkg:pypi/tree-sitter-xml@0.7.0",
+        "pkg:pypi/tree-sitter-yaml@0.7.2",
+        "pkg:pypi/tree-sitter@0.25.2",
+        "pkg:pypi/typing-extensions@4.15.0"
+      ]
+    },
+    {
+      "ref": "3a26861e-2e6c-4570-bd1e-3dc53b47ed2f",
+      "dependsOn": [
+        "1c5c7d28-0198-4098-a4e7-31c80fbe47b8"
+      ]
+    },
+    {
+      "ref": "pkg:pypi/linkify-it-py@2.0.3",
+      "dependsOn": [
+        "pkg:pypi/uc-micro-py@1.0.3"
+      ]
+    },
+    {
+      "ref": "pkg:pypi/markdown-it-py@3.0.0",
+      "dependsOn": [
+        "pkg:pypi/linkify-it-py@2.0.3",
+        "pkg:pypi/mdurl@0.1.2"
+      ]
+    },
+    {
+      "ref": "pkg:pypi/mdit-py-plugins@0.4.2",
+      "dependsOn": [
+        "pkg:pypi/markdown-it-py@3.0.0"
+      ]
+    },
+    {
+      "ref": "pkg:pypi/mdurl@0.1.2",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:pypi/platformdirs@4.4.0",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:pypi/pygments@2.19.2",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:pypi/rich@14.2.0",
+      "dependsOn": [
+        "pkg:pypi/markdown-it-py@3.0.0",
+        "pkg:pypi/pygments@2.19.2"
+      ]
+    },
+    {
+      "ref": "pkg:pypi/tree-sitter-bash@0.25.0",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:pypi/tree-sitter-css@0.25.0",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:pypi/tree-sitter-go@0.25.0",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:pypi/tree-sitter-html@0.23.2",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:pypi/tree-sitter-java@0.23.5",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:pypi/tree-sitter-javascript@0.25.0",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:pypi/tree-sitter-json@0.24.8",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:pypi/tree-sitter-markdown@0.5.1",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:pypi/tree-sitter-python@0.25.0",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:pypi/tree-sitter-regex@0.25.0",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:pypi/tree-sitter-rust@0.24.0",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:pypi/tree-sitter-sql@0.3.11",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:pypi/tree-sitter-toml@0.7.0",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:pypi/tree-sitter-xml@0.7.0",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:pypi/tree-sitter-yaml@0.7.2",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:pypi/tree-sitter@0.25.2",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:pypi/typing-extensions@4.15.0",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:pypi/uc-micro-py@1.0.3",
+      "dependsOn": []
+    }
+  ],
+  "vulnerabilities": []
+}

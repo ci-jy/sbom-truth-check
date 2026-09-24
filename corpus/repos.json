@@ -1,0 +1,22 @@
+[
+  {"name": "axios", "repo": "axios/axios", "commit": "1a94bdbdf0518f3adbeada510b747aff80847ed7", "ecosystem": "npm"},
+  {"name": "highlight.js", "repo": "highlightjs/highlight.js", "commit": "fc3f06392f189354eed922973635ab9e9268b983", "ecosystem": "npm"},
+  {"name": "mocha", "repo": "mochajs/mocha", "commit": "2c2b89600e3ba8225bf11d7919e698060a55c86e", "ecosystem": "npm"},
+  {"name": "marked", "repo": "markedjs/marked", "commit": "eaa1fffb30fa334cc11ab93f1e5aaa1d2b916e7c", "ecosystem": "npm"},
+  {"name": "koa", "repo": "koajs/koa", "commit": "2fecd029c6ce6b79d65158d28a76538f7f6b0378", "ecosystem": "npm"},
+  {"name": "yargs", "repo": "yargs/yargs", "commit": "b2dbcc538062829bd720f8cbfb6b4765bae6b4b8", "ecosystem": "npm"},
+  {"name": "winston", "repo": "winstonjs/winston", "commit": "ff0b79de8562bb322c390fbc82fe71c11f373428", "ecosystem": "npm"},
+  {"name": "nodemailer", "repo": "nodemailer/nodemailer", "commit": "afa881500ed6b239091c4aa13c629bde62b10c7b", "ecosystem": "npm"},
+  {"name": "poetry", "repo": "python-poetry/poetry", "commit": "63bba274f8ea6bc9a064f5328fa6c67bce617cc1", "ecosystem": "poetry"},
+  {"name": "poetry-core", "repo": "python-poetry/poetry-core", "commit": "b52c25c451bbaed9f309d45fc6e6e35c704e55bf", "ecosystem": "poetry"},
+  {"name": "rich", "repo": "Textualize/rich", "commit": "9d8f9a372cc5916fd4781fec207ced7ddac2f08f", "ecosystem": "poetry"},
+  {"name": "textual", "repo": "Textualize/textual", "commit": "06dbeef4bb70fb718236aa418ed658ef4667a126", "ecosystem": "poetry"},
+  {"name": "poetry-plugin-export", "repo": "python-poetry/poetry-plugin-export", "commit": "a69c5bce9bbb1c5de5d9e55e7da3b25f10e3e6b2", "ecosystem": "poetry"},
+  {"name": "cleo", "repo": "python-poetry/cleo", "commit": "8c3f1bbf82d918fc137ad40db65c446e14564aac", "ecosystem": "poetry"},
+  {"name": "tomlkit", "repo": "sdispater/tomlkit", "commit": "858186a3edb4cad6d66281ee7ad5fb07fe820406", "ecosystem": "poetry"},
+  {"name": "jsoup", "repo": "jhy/jsoup", "commit": "088614f4a1454232a1f03c63b7f80742f1f2a854", "ecosystem": "maven"},
+  {"name": "javapoet", "repo": "square/javapoet", "commit": "b9017a9503b76e11b4ad4c1a9f050e2d29112cb0", "ecosystem": "maven"},
+  {"name": "commons-io", "repo": "apache/commons-io", "commit": "4ea3ecac926d1c15af7f3cfc0a34e218c39bae49", "ecosystem": "maven"},
+  {"name": "commons-text", "repo": "apache/commons-text", "commit": "64896b6fc0c1956415eb1624db3169af04ad7050", "ecosystem": "maven"},
+  {"name": "junit4", "repo": "junit-team/junit4", "commit": "890f3c972647de378f25e7271d8fbbd9d3456b79", "ecosystem": "maven"}
+]
