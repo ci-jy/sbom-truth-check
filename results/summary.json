@@ -1,0 +1,723 @@
+{
+ "sboms_evaluated": 88,
+ "repositories": 20,
+ "fully_conformant_sboms": 0,
+ "field_pass_rate": {
+  "format_version": 1.0,
+  "sbom_author": 0.4432,
+  "timestamp": 1.0,
+  "tool_name": 1.0,
+  "generation_context": 0.0,
+  "component_name": 1.0,
+  "component_version": 0.9886,
+  "software_identifier": 1.0,
+  "component_producer": 0.1364,
+  "component_hash": 0.2159,
+  "license": 0.4659,
+  "dependency_relationships": 0.6364,
+  "transitive_completeness": 0.3977
+ },
+ "mismatches_total": 13489,
+ "mismatch_causes": {
+  "dev_test_dependency_included": 12805,
+  "optional_or_platform_dependency": 240,
+  "duplicate_component": 177,
+  "missing_direct_edge": 155,
+  "range_instead_of_locked_version": 56,
+  "edge_to_wrong_version": 34,
+  "inactive_build_profile_dependency": 12,
+  "transitive_reported_as_direct": 10
+ },
+ "unexplained_mismatches": 0,
+ "generator_failures": [
+  {
+   "repo": "winston",
+   "tool": "cyclonedx-npm",
+   "error": [
+    "",
+    "Error: npm-ls exited with errors: 1 noSignal"
+   ]
+  },
+  {
+   "repo": "poetry",
+   "tool": "cyclonedx-py",
+   "error": [
+    "CRITICAL | CDX > 'name'"
+   ]
+  },
+  {
+   "repo": "poetry-core",
+   "tool": "cyclonedx-py",
+   "error": [
+    "CRITICAL | CDX > 'name'"
+   ]
+  },
+  {
+   "repo": "poetry-plugin-export",
+   "tool": "cyclonedx-py",
+   "error": [
+    "CRITICAL | CDX > 'name'"
+   ]
+  },
+  {
+   "repo": "cleo",
+   "tool": "cyclonedx-py",
+   "error": [
+    "CRITICAL | CDX > 'name'"
+   ]
+  },
+  {
+   "repo": "tomlkit",
+   "tool": "cyclonedx-py",
+   "error": [
+    "CRITICAL | CDX > 'name'"
+   ]
+  },
+  {
+   "repo": "commons-text",
+   "tool": "trivy-spdx",
+   "error": [
+    "The repository blocks all subsequent requests from this IP until the block clears.",
+    "To avoid this, populate the local Maven cache before scanning (e.g. run `mvn dependency:resolve`, or `mvn install` for a multi-module project, and cache ~/.m2 in CI)."
+   ]
+  }
+ ],
+ "tools": {
+  "cyclonedx-npm (cdx)": {
+   "sboms": 7,
+   "sboms_with_dependency_graph": 7,
+   "components.all": {
+    "tp": 98,
+    "reported": 3580,
+    "expected": 98,
+    "precision": 0.0274,
+    "recall": 1.0
+   },
+   "components.direct": {
+    "tp": 44,
+    "reported": 223,
+    "expected": 44,
+    "precision": 0.1973,
+    "recall": 1.0
+   },
+   "components.transitive": {
+    "tp": 54,
+    "reported": 3357,
+    "expected": 54,
+    "precision": 0.0161,
+    "recall": 1.0
+   },
+   "edges.all": {
+    "tp": 125,
+    "reported": 6746,
+    "expected": 125,
+    "precision": 0.0185,
+    "recall": 1.0
+   },
+   "edges.direct": {
+    "tp": 44,
+    "reported": 227,
+    "expected": 44,
+    "precision": 0.1938,
+    "recall": 1.0
+   },
+   "edges.transitive": {
+    "tp": 81,
+    "reported": 6519,
+    "expected": 81,
+    "precision": 0.0124,
+    "recall": 1.0
+   },
+   "conformance": {
+    "format_version": {
+     "sbom_pass_rate": 1.0,
+     "location_pass_rate": 1.0
+    },
+    "sbom_author": {
+     "sbom_pass_rate": 0.0,
+     "location_pass_rate": 0.0
+    },
+    "timestamp": {
+     "sbom_pass_rate": 1.0,
+     "location_pass_rate": 1.0
+    },
+    "tool_name": {
+     "sbom_pass_rate": 1.0,
+     "location_pass_rate": 1.0
+    },
+    "generation_context": {
+     "sbom_pass_rate": 0.0,
+     "location_pass_rate": 0.0
+    },
+    "component_name": {
+     "sbom_pass_rate": 1.0,
+     "location_pass_rate": 1.0
+    },
+    "component_version": {
+     "sbom_pass_rate": 0.8571,
+     "location_pass_rate": 0.9997
+    },
+    "software_identifier": {
+     "sbom_pass_rate": 1.0,
+     "location_pass_rate": 1.0
+    },
+    "component_producer": {
+     "sbom_pass_rate": 0.0,
+     "location_pass_rate": 0.0
+    },
+    "component_hash": {
+     "sbom_pass_rate": 0.7143,
+     "location_pass_rate": 0.9617
+    },
+    "license": {
+     "sbom_pass_rate": 0.2857,
+     "location_pass_rate": 0.8674
+    },
+    "dependency_relationships": {
+     "sbom_pass_rate": 1.0,
+     "location_pass_rate": 1.0
+    },
+    "transitive_completeness": {
+     "sbom_pass_rate": 1.0,
+     "location_pass_rate": 1.0
+    }
+   },
+   "mismatch_causes": {
+    "dev_test_dependency_included": 10103,
+    "duplicate_component": 177
+   }
+  },
+  "cyclonedx-py (cdx)": {
+   "sboms": 2,
+   "sboms_with_dependency_graph": 2,
+   "components.all": {
+    "tp": 14,
+    "reported": 123,
+    "expected": 51,
+    "precision": 0.1138,
+    "recall": 0.2745
+   },
+   "components.direct": {
+    "tp": 9,
+    "reported": 35,
+    "expected": 26,
+    "precision": 0.2571,
+    "recall": 0.3462
+   },
+   "components.transitive": {
+    "tp": 5,
+    "reported": 88,
+    "expected": 25,
+    "precision": 0.0568,
+    "recall": 0.2
+   },
+   "edges.all": {
+    "tp": 16,
+    "reported": 221,
+    "expected": 58,
+    "precision": 0.0724,
+    "recall": 0.2759
+   },
+   "edges.direct": {
+    "tp": 9,
+    "reported": 35,
+    "expected": 26,
+    "precision": 0.2571,
+    "recall": 0.3462
+   },
+   "edges.transitive": {
+    "tp": 7,
+    "reported": 186,
+    "expected": 32,
+    "precision": 0.0376,
+    "recall": 0.2188
+   },
+   "conformance": {
+    "format_version": {
+     "sbom_pass_rate": 1.0,
+     "location_pass_rate": 1.0
+    },
+    "sbom_author": {
+     "sbom_pass_rate": 0.0,
+     "location_pass_rate": 0.0
+    },
+    "timestamp": {
+     "sbom_pass_rate": 1.0,
+     "location_pass_rate": 1.0
+    },
+    "tool_name": {
+     "sbom_pass_rate": 1.0,
+     "location_pass_rate": 1.0
+    },
+    "generation_context": {
+     "sbom_pass_rate": 0.0,
+     "location_pass_rate": 0.0
+    },
+    "component_name": {
+     "sbom_pass_rate": 1.0,
+     "location_pass_rate": 1.0
+    },
+    "component_version": {
+     "sbom_pass_rate": 1.0,
+     "location_pass_rate": 1.0
+    },
+    "software_identifier": {
+     "sbom_pass_rate": 1.0,
+     "location_pass_rate": 1.0
+    },
+    "component_producer": {
+     "sbom_pass_rate": 0.0,
+     "location_pass_rate": 0.0
+    },
+    "component_hash": {
+     "sbom_pass_rate": 1.0,
+     "location_pass_rate": 1.0
+    },
+    "license": {
+     "sbom_pass_rate": 0.0,
+     "location_pass_rate": 0.0
+    },
+    "dependency_relationships": {
+     "sbom_pass_rate": 1.0,
+     "location_pass_rate": 1.0
+    },
+    "transitive_completeness": {
+     "sbom_pass_rate": 1.0,
+     "location_pass_rate": 1.0
+    }
+   },
+   "mismatch_causes": {
+    "dev_test_dependency_included": 314,
+    "optional_or_platform_dependency": 79
+   }
+  },
+  "syft (cdx)": {
+   "sboms": 20,
+   "sboms_with_dependency_graph": 17,
+   "components.all": {
+    "tp": 289,
+    "reported": 642,
+    "expected": 289,
+    "precision": 0.4502,
+    "recall": 1.0
+   },
+   "components.direct": {
+    "tp": 111,
+    "reported": 206,
+    "expected": 111,
+    "precision": 0.5388,
+    "recall": 1.0
+   },
+   "components.transitive": {
+    "tp": 178,
+    "reported": 436,
+    "expected": 178,
+    "precision": 0.4083,
+    "recall": 1.0
+   },
+   "edges.all": {
+    "tp": 325,
+    "reported": 1266,
+    "expected": 377,
+    "precision": 0.2567,
+    "recall": 0.8621
+   },
+   "edges.direct": {
+    "tp": 59,
+    "reported": 103,
+    "expected": 111,
+    "precision": 0.5728,
+    "recall": 0.5315
+   },
+   "edges.transitive": {
+    "tp": 266,
+    "reported": 1163,
+    "expected": 266,
+    "precision": 0.2287,
+    "recall": 1.0
+   },
+   "conformance": {
+    "format_version": {
+     "sbom_pass_rate": 1.0,
+     "location_pass_rate": 1.0
+    },
+    "sbom_author": {
+     "sbom_pass_rate": 0.0,
+     "location_pass_rate": 0.0
+    },
+    "timestamp": {
+     "sbom_pass_rate": 1.0,
+     "location_pass_rate": 1.0
+    },
+    "tool_name": {
+     "sbom_pass_rate": 1.0,
+     "location_pass_rate": 1.0
+    },
+    "generation_context": {
+     "sbom_pass_rate": 0.0,
+     "location_pass_rate": 0.0
+    },
+    "component_name": {
+     "sbom_pass_rate": 1.0,
+     "location_pass_rate": 1.0
+    },
+    "component_version": {
+     "sbom_pass_rate": 1.0,
+     "location_pass_rate": 1.0
+    },
+    "software_identifier": {
+     "sbom_pass_rate": 1.0,
+     "location_pass_rate": 1.0
+    },
+    "component_producer": {
+     "sbom_pass_rate": 0.0,
+     "location_pass_rate": 0.0
+    },
+    "component_hash": {
+     "sbom_pass_rate": 0.0,
+     "location_pass_rate": 0.0
+    },
+    "license": {
+     "sbom_pass_rate": 0.3,
+     "location_pass_rate": 0.1756
+    },
+    "dependency_relationships": {
+     "sbom_pass_rate": 0.0,
+     "location_pass_rate": 0.513
+    },
+    "transitive_completeness": {
+     "sbom_pass_rate": 0.0,
+     "location_pass_rate": 0.0
+    }
+   },
+   "mismatch_causes": {
+    "dev_test_dependency_included": 1194,
+    "optional_or_platform_dependency": 65,
+    "missing_direct_edge": 33,
+    "range_instead_of_locked_version": 28,
+    "edge_to_wrong_version": 15,
+    "inactive_build_profile_dependency": 6,
+    "transitive_reported_as_direct": 5
+   }
+  },
+  "syft (spdx)": {
+   "sboms": 20,
+   "sboms_with_dependency_graph": 17,
+   "components.all": {
+    "tp": 289,
+    "reported": 642,
+    "expected": 289,
+    "precision": 0.4502,
+    "recall": 1.0
+   },
+   "components.direct": {
+    "tp": 111,
+    "reported": 206,
+    "expected": 111,
+    "precision": 0.5388,
+    "recall": 1.0
+   },
+   "components.transitive": {
+    "tp": 178,
+    "reported": 436,
+    "expected": 178,
+    "precision": 0.4083,
+    "recall": 1.0
+   },
+   "edges.all": {
+    "tp": 325,
+    "reported": 1266,
+    "expected": 377,
+    "precision": 0.2567,
+    "recall": 0.8621
+   },
+   "edges.direct": {
+    "tp": 59,
+    "reported": 103,
+    "expected": 111,
+    "precision": 0.5728,
+    "recall": 0.5315
+   },
+   "edges.transitive": {
+    "tp": 266,
+    "reported": 1163,
+    "expected": 266,
+    "precision": 0.2287,
+    "recall": 1.0
+   },
+   "conformance": {
+    "format_version": {
+     "sbom_pass_rate": 1.0,
+     "location_pass_rate": 1.0
+    },
+    "sbom_author": {
+     "sbom_pass_rate": 1.0,
+     "location_pass_rate": 1.0
+    },
+    "timestamp": {
+     "sbom_pass_rate": 1.0,
+     "location_pass_rate": 1.0
+    },
+    "tool_name": {
+     "sbom_pass_rate": 1.0,
+     "location_pass_rate": 1.0
+    },
+    "generation_context": {
+     "sbom_pass_rate": 0.0,
+     "location_pass_rate": 0.0
+    },
+    "component_name": {
+     "sbom_pass_rate": 1.0,
+     "location_pass_rate": 1.0
+    },
+    "component_version": {
+     "sbom_pass_rate": 1.0,
+     "location_pass_rate": 1.0
+    },
+    "software_identifier": {
+     "sbom_pass_rate": 1.0,
+     "location_pass_rate": 1.0
+    },
+    "component_producer": {
+     "sbom_pass_rate": 0.0,
+     "location_pass_rate": 0.0
+    },
+    "component_hash": {
+     "sbom_pass_rate": 0.0,
+     "location_pass_rate": 0.0
+    },
+    "license": {
+     "sbom_pass_rate": 0.3,
+     "location_pass_rate": 0.1756
+    },
+    "dependency_relationships": {
+     "sbom_pass_rate": 0.85,
+     "location_pass_rate": 0.85
+    },
+    "transitive_completeness": {
+     "sbom_pass_rate": 0.0,
+     "location_pass_rate": 0.0
+    }
+   },
+   "mismatch_causes": {
+    "dev_test_dependency_included": 1194,
+    "optional_or_platform_dependency": 65,
+    "missing_direct_edge": 33,
+    "range_instead_of_locked_version": 28,
+    "edge_to_wrong_version": 15,
+    "inactive_build_profile_dependency": 6,
+    "transitive_reported_as_direct": 5
+   }
+  },
+  "trivy (cdx)": {
+   "sboms": 20,
+   "sboms_with_dependency_graph": 11,
+   "components.all": {
+    "tp": 286,
+    "reported": 286,
+    "expected": 289,
+    "precision": 1.0,
+    "recall": 0.9896
+   },
+   "components.direct": {
+    "tp": 110,
+    "reported": 110,
+    "expected": 111,
+    "precision": 1.0,
+    "recall": 0.991
+   },
+   "components.transitive": {
+    "tp": 176,
+    "reported": 176,
+    "expected": 178,
+    "precision": 1.0,
+    "recall": 0.9888
+   },
+   "edges.all": {
+    "tp": 373,
+    "reported": 375,
+    "expected": 377,
+    "precision": 0.9947,
+    "recall": 0.9894
+   },
+   "edges.direct": {
+    "tp": 109,
+    "reported": 109,
+    "expected": 111,
+    "precision": 1.0,
+    "recall": 0.982
+   },
+   "edges.transitive": {
+    "tp": 264,
+    "reported": 266,
+    "expected": 266,
+    "precision": 0.9925,
+    "recall": 0.9925
+   },
+   "conformance": {
+    "format_version": {
+     "sbom_pass_rate": 1.0,
+     "location_pass_rate": 1.0
+    },
+    "sbom_author": {
+     "sbom_pass_rate": 0.0,
+     "location_pass_rate": 0.0
+    },
+    "timestamp": {
+     "sbom_pass_rate": 1.0,
+     "location_pass_rate": 1.0
+    },
+    "tool_name": {
+     "sbom_pass_rate": 1.0,
+     "location_pass_rate": 1.0
+    },
+    "generation_context": {
+     "sbom_pass_rate": 0.0,
+     "location_pass_rate": 0.0
+    },
+    "component_name": {
+     "sbom_pass_rate": 1.0,
+     "location_pass_rate": 1.0
+    },
+    "component_version": {
+     "sbom_pass_rate": 1.0,
+     "location_pass_rate": 1.0
+    },
+    "software_identifier": {
+     "sbom_pass_rate": 1.0,
+     "location_pass_rate": 1.0
+    },
+    "component_producer": {
+     "sbom_pass_rate": 0.3,
+     "location_pass_rate": 0.0
+    },
+    "component_hash": {
+     "sbom_pass_rate": 0.3,
+     "location_pass_rate": 0.0
+    },
+    "license": {
+     "sbom_pass_rate": 0.7,
+     "location_pass_rate": 0.3849
+    },
+    "dependency_relationships": {
+     "sbom_pass_rate": 1.0,
+     "location_pass_rate": 1.0
+    },
+    "transitive_completeness": {
+     "sbom_pass_rate": 1.0,
+     "location_pass_rate": 1.0
+    }
+   },
+   "mismatch_causes": {
+    "optional_or_platform_dependency": 6,
+    "edge_to_wrong_version": 2,
+    "missing_direct_edge": 1
+   }
+  },
+  "trivy (spdx)": {
+   "sboms": 19,
+   "sboms_with_dependency_graph": 10,
+   "components.all": {
+    "tp": 284,
+    "reported": 284,
+    "expected": 287,
+    "precision": 1.0,
+    "recall": 0.9895
+   },
+   "components.direct": {
+    "tp": 108,
+    "reported": 108,
+    "expected": 109,
+    "precision": 1.0,
+    "recall": 0.9908
+   },
+   "components.transitive": {
+    "tp": 176,
+    "reported": 176,
+    "expected": 178,
+    "precision": 1.0,
+    "recall": 0.9888
+   },
+   "edges.all": {
+    "tp": 265,
+    "reported": 267,
+    "expected": 375,
+    "precision": 0.9925,
+    "recall": 0.7067
+   },
+   "edges.direct": {
+    "tp": 1,
+    "reported": 1,
+    "expected": 109,
+    "precision": 1.0,
+    "recall": 0.0092
+   },
+   "edges.transitive": {
+    "tp": 264,
+    "reported": 266,
+    "expected": 266,
+    "precision": 0.9925,
+    "recall": 0.9925
+   },
+   "conformance": {
+    "format_version": {
+     "sbom_pass_rate": 1.0,
+     "location_pass_rate": 1.0
+    },
+    "sbom_author": {
+     "sbom_pass_rate": 1.0,
+     "location_pass_rate": 1.0
+    },
+    "timestamp": {
+     "sbom_pass_rate": 1.0,
+     "location_pass_rate": 1.0
+    },
+    "tool_name": {
+     "sbom_pass_rate": 1.0,
+     "location_pass_rate": 1.0
+    },
+    "generation_context": {
+     "sbom_pass_rate": 0.0,
+     "location_pass_rate": 0.0
+    },
+    "component_name": {
+     "sbom_pass_rate": 1.0,
+     "location_pass_rate": 1.0
+    },
+    "component_version": {
+     "sbom_pass_rate": 1.0,
+     "location_pass_rate": 1.0
+    },
+    "software_identifier": {
+     "sbom_pass_rate": 1.0,
+     "location_pass_rate": 1.0
+    },
+    "component_producer": {
+     "sbom_pass_rate": 0.3158,
+     "location_pass_rate": 0.0
+    },
+    "component_hash": {
+     "sbom_pass_rate": 0.3158,
+     "location_pass_rate": 0.0
+    },
+    "license": {
+     "sbom_pass_rate": 0.6842,
+     "location_pass_rate": 0.3785
+    },
+    "dependency_relationships": {
+     "sbom_pass_rate": 0.5263,
+     "location_pass_rate": 0.5263
+    },
+    "transitive_completeness": {
+     "sbom_pass_rate": 0.3158,
+     "location_pass_rate": 0.0204
+    }
+   },
+   "mismatch_causes": {
+    "missing_direct_edge": 88,
+    "optional_or_platform_dependency": 25,
+    "edge_to_wrong_version": 2
+   }
+  }
+ }
+}
