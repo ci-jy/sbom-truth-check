@@ -51,7 +51,7 @@ $ python3 -m sbomcheck diff corpus/koa/sboms/syft.cdx.json corpus/koa/src/packag
       ... 14 more
 ```
 
-In this example, Syft lists the right packages but links `accepts` to every installed version of `mime-types`, not to the one the lockfile resolves. Add `--json` to get machine-readable output. Add `conform --strict` or `diff --fail-on-unexplained` to make the command exit non-zero, for use as a CI gate.
+In this example, Syft lists the right packages but links each package to every installed version of a dependency name (for example, koa to both `content-type` 1.0.5 and 2.0.0), not only to the one the lockfile resolves. Add `--json` to get machine-readable output. Add `conform --strict` or `diff --fail-on-unexplained` to make the command exit non-zero, for use as a CI gate.
 
 ## How it works
 
