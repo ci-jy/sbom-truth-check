@@ -4,7 +4,7 @@ Two PURLs that name the same artifact must compare equal after canonicalization:
 
 * type is case-insensitive (``pkg:PyPI/...`` == ``pkg:pypi/...``)
 * PyPI names follow PEP 503 (lowercase, runs of ``-``, ``_`` and ``.`` collapse to ``-``)
-  and versions follow PEP 440 normalization (``1.0.0-RC1`` == ``1.0.0rc1``)
+  and versions follow PEP 440 normalization and zero padding (``1.0.0-RC1`` == ``1.0rc1``)
 * npm scopes are lowercase and always carry the ``@``; package names keep their case,
   because the npm registry treats ``JSONStream`` and ``jsonstream`` as different packages
 * Maven groupId/artifactId are case-sensitive; ``type=jar`` is the default and is dropped
@@ -121,6 +121,18 @@ def pep440_version(version: str) -> str:
     return out
 
 
+def pep440_identity(version: str) -> str:
+    """PEP 440 normalized version with trailing zero release segments removed (1.0.0 == 1.0 == 1)."""
+    norm = pep440_version(version)
+    m = re.match(r"^((?:\d+!)?)(\d+(?:\.\d+)*)(.*)$", norm)
+    if not m or norm == version and not _PEP440.match(version):
+        return norm
+    release = m.group(2).split(".")
+    while len(release) > 1 and release[-1] == "0":
+        release.pop()
+    return m.group(1) + ".".join(release) + m.group(3)
+
+
 def canonicalize(p: Purl | str) -> Purl:
     """Return the canonical form of a PURL (see module docstring for the rules)."""
     if isinstance(p, str):
@@ -130,7 +142,7 @@ def canonicalize(p: Purl | str) -> Purl:
     if ptype == "pypi":
         namespace = None
         name = pep503_name(name)
-        version = pep440_version(version) if version else None
+        version = pep440_identity(version) if version else None
     elif ptype == "npm":
         if namespace:
             namespace = "@" + namespace.lstrip("@").lower()
@@ -166,5 +178,5 @@ def raw_identity(p: Purl | str) -> str:
     """Identity of a PURL as written (no normalization beyond dropping non-identity qualifiers)."""
     if isinstance(p, str):
         p = parse(p)
-    quals = tuple((k, v) for k, v in p.qualifiers if k in IDENTITY_QUALIFIERS)
+    quals = tuple((k, v) for k, v in p.qualifiers if k.lower() in IDENTITY_QUALIFIERS)
     return Purl(p.type, p.namespace, p.name, p.version, quals).to_string()

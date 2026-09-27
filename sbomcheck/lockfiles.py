@@ -79,12 +79,12 @@ def _node(ecosystem: str, name: str, version: str | None, **flags) -> Node:
 # --------------------------------------------------------------------------- npm
 
 
-def resolve_npm(lockfile: str | Path) -> TruthGraph:
-    """npm package-lock.json lockfileVersion 2 or 3 (the ``packages`` map)."""
-    data = json.loads(Path(lockfile).read_text())
+def resolve_npm(lockfile: str | Path | dict) -> TruthGraph:
+    """npm package-lock.json lockfileVersion 2 or 3 (the ``packages`` map); a parsed dict is accepted too."""
+    data = lockfile if isinstance(lockfile, dict) else json.loads(Path(lockfile).read_text())
     packages = data.get("packages")
     if not packages:
-        raise ValueError(f"{lockfile}: only lockfileVersion 2/3 (with a 'packages' map) is supported")
+        raise ValueError("package-lock: only lockfileVersion 2/3 (with a 'packages' map) is supported")
     root = packages.get("", {})
     g = TruthGraph("npm", root.get("name") or data.get("name") or "", root.get("version") or data.get("version"))
 
