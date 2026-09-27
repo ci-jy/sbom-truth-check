@@ -24,9 +24,8 @@
   "duplicate_component": 177,
   "missing_direct_edge": 155,
   "range_instead_of_locked_version": 56,
-  "edge_to_wrong_version": 34,
-  "inactive_build_profile_dependency": 12,
-  "transitive_reported_as_direct": 10
+  "edge_to_wrong_version": 44,
+  "inactive_build_profile_dependency": 12
  },
  "unexplained_mismatches": 0,
  "generator_failures": [
@@ -395,9 +394,8 @@
     "optional_or_platform_dependency": 65,
     "missing_direct_edge": 33,
     "range_instead_of_locked_version": 28,
-    "edge_to_wrong_version": 15,
-    "inactive_build_profile_dependency": 6,
-    "transitive_reported_as_direct": 5
+    "edge_to_wrong_version": 20,
+    "inactive_build_profile_dependency": 6
    }
   },
   "syft (spdx)": {
@@ -504,9 +502,8 @@
     "optional_or_platform_dependency": 65,
     "missing_direct_edge": 33,
     "range_instead_of_locked_version": 28,
-    "edge_to_wrong_version": 15,
-    "inactive_build_profile_dependency": 6,
-    "transitive_reported_as_direct": 5
+    "edge_to_wrong_version": 20,
+    "inactive_build_profile_dependency": 6
    }
   },
   "trivy (cdx)": {

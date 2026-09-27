@@ -56,8 +56,8 @@
 | missing_transitive_edge | 0 |
 | missing_direct_edge | 155 |
 | no_dependency_graph | 0 |
-| transitive_reported_as_direct | 10 |
-| edge_to_wrong_version | 34 |
+| transitive_reported_as_direct | 0 |
+| edge_to_wrong_version | 44 |
 | inactive_build_profile_dependency | 12 |
 | duplicate_component | 177 |
 | component_without_purl | 0 |
@@ -67,8 +67,8 @@
 
 - **cyclonedx-npm (cdx)**: dev_test_dependency_included 10103, duplicate_component 177
 - **cyclonedx-py (cdx)**: dev_test_dependency_included 314, optional_or_platform_dependency 79
-- **syft (cdx)**: dev_test_dependency_included 1194, optional_or_platform_dependency 65, missing_direct_edge 33, range_instead_of_locked_version 28, edge_to_wrong_version 15, inactive_build_profile_dependency 6, transitive_reported_as_direct 5
-- **syft (spdx)**: dev_test_dependency_included 1194, optional_or_platform_dependency 65, missing_direct_edge 33, range_instead_of_locked_version 28, edge_to_wrong_version 15, inactive_build_profile_dependency 6, transitive_reported_as_direct 5
+- **syft (cdx)**: dev_test_dependency_included 1194, optional_or_platform_dependency 65, missing_direct_edge 33, range_instead_of_locked_version 28, edge_to_wrong_version 20, inactive_build_profile_dependency 6
+- **syft (spdx)**: dev_test_dependency_included 1194, optional_or_platform_dependency 65, missing_direct_edge 33, range_instead_of_locked_version 28, edge_to_wrong_version 20, inactive_build_profile_dependency 6
 - **trivy (cdx)**: optional_or_platform_dependency 6, edge_to_wrong_version 2, missing_direct_edge 1
 - **trivy (spdx)**: missing_direct_edge 88, optional_or_platform_dependency 25, edge_to_wrong_version 2
 

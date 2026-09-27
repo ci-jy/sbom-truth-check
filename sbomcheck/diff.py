@@ -209,8 +209,7 @@ def diff(sbom: Sbom, truth: TruthGraph) -> DiffResult:
             cause = DEV_DEPENDENCY  # a locked edge used only in dev scope
         elif parent_node is not None and truth.nodes[c].name in parent_node.extras:
             cause = OPTIONAL  # the parent's optional extras, not a locked dependency
-        elif parent_node is not None and purls.package_key(c) in {
-                purls.package_key(x) for (pp, x) in all_truth_edges if pp == p}:
+        elif purls.package_key(c) in {purls.package_key(x) for (pp, x) in all_truth_edges if pp == p}:
             cause = AMBIGUOUS_EDGE
         elif p == ROOT and c in runtime:
             cause = FLATTENED

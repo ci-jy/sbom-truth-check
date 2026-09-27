@@ -1,0 +1,26 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "sbomcheck"
+version = "0.1.0"
+description = "Check SBOMs against CISA's minimum elements and measure their accuracy against lockfile ground truth"
+readme = "README.md"
+requires-python = ">=3.11"
+license = "MIT"
+dependencies = []  # the checker itself is standard library only
+
+[project.optional-dependencies]
+test = ["pytest>=8", "hypothesis>=6.100"]
+plot = ["matplotlib>=3.8"]
+generators = ["cyclonedx-bom==7.5.0"]  # cyclonedx-py; Syft/Trivy/cyclonedx-npm: see scripts/generate_sboms.sh
+
+[project.scripts]
+sbomcheck = "sbomcheck.cli:main"
+
+[tool.setuptools]
+packages = ["sbomcheck"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]

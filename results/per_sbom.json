@@ -20892,8 +20892,7 @@
    },
    "has_dependency_graph": true,
    "causes": {
-    "transitive_reported_as_direct": 4,
-    "edge_to_wrong_version": 11
+    "edge_to_wrong_version": 15
    }
   }
  },
@@ -21482,8 +21481,7 @@
    },
    "has_dependency_graph": true,
    "causes": {
-    "transitive_reported_as_direct": 4,
-    "edge_to_wrong_version": 11
+    "edge_to_wrong_version": 15
    }
   }
  },
@@ -25271,8 +25269,7 @@
    },
    "has_dependency_graph": true,
    "causes": {
-    "transitive_reported_as_direct": 1,
-    "edge_to_wrong_version": 2
+    "edge_to_wrong_version": 3
    }
   }
  },
@@ -25597,8 +25594,7 @@
    },
    "has_dependency_graph": true,
    "causes": {
-    "transitive_reported_as_direct": 1,
-    "edge_to_wrong_version": 2
+    "edge_to_wrong_version": 3
    }
   }
  },
