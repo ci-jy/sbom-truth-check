@@ -173,3 +173,5 @@ The suite has 65 tests:
 - All 13,489 mismatches are classified, but the classification is rule-based. It explains the corpus completely and the planted tests check each class, but a new generator behaviour could still land in `unexplained`; the `--fail-on-unexplained` gate exists to surface that case.
 - Conformance checks that the elements are present and well-formed. It does not verify that a hash matches the real artifact or that a license is correct. Downloading artifacts to confirm hashes would be the next step.
 - No vulnerability matching, no container-image SBOMs, no SBOM generation of its own and no web UI; these are out of scope.
+
+Project period: 2026-09-24 to 2026-09-29.
