@@ -16,7 +16,7 @@ from __future__ import annotations
 
 import re
 from dataclasses import dataclass
-from functools import total_ordering
+from functools import lru_cache, total_ordering
 
 # Strings CNAs use for "no bound" / "every version".
 UNBOUNDED = {"", "*", "0", "-", "all", "unspecified", "n/a", "na", "unknown", "all versions"}
@@ -58,6 +58,7 @@ class Version:
         return f"Version({self.raw!r})"
 
 
+@lru_cache(maxsize=500_000)
 def version_key(raw: str) -> tuple:
     text = _PREFIX.sub("", raw.strip().lower())
     text = text.split("+", 1)[0]  # semver build metadata does not take part in ordering

@@ -12,6 +12,7 @@ from __future__ import annotations
 
 import math
 import re
+from functools import lru_cache
 from collections import Counter, defaultdict
 from dataclasses import dataclass, field
 
@@ -34,10 +35,12 @@ REGISTRIES = [
 ]
 
 
+@lru_cache(maxsize=1_000_000)
 def norm(s: str | None) -> str:
     return re.sub(r"[^a-z0-9]+", "_", (s or "").lower()).strip("_")
 
 
+@lru_cache(maxsize=1_000_000)
 def tokens(s: str | None) -> frozenset[str]:
     return frozenset(t for t in norm(s).split("_") if t and t not in STOP)
 
@@ -138,6 +141,7 @@ class Dictionary:
         self.by_product: dict[str, list[str]] = defaultdict(list)
         self.by_vendor: dict[str, list[str]] = defaultdict(list)
         self.vendor_tok: dict[str, set[str]] = defaultdict(set)
+        self.product_tok: dict[tuple[str, str], list[str]] = defaultdict(list)  # (vendor, product token) -> vps
         for vp in self.vps:
             v, p = vp.split(":", 1)
             nv, np_ = norm(v), norm(p)
@@ -146,6 +150,8 @@ class Dictionary:
             self.by_vendor[nv].append(vp)
             for t in tokens(v):
                 self.vendor_tok[t].add(nv)
+            for t in tokens(p):
+                self.product_tok[(nv, t)].append(vp)
 
     def current(self, vp: str) -> tuple[str, bool]:
         seen = {vp}
@@ -193,7 +199,7 @@ def _dict_overlap(dictionary: Dictionary, vp: str, ranges) -> float:
     entry = dictionary.vps.get(vp)
     if not entry or not entry[2] or ranges is None:
         return 0.0
-    for v in entry[2][:500]:
+    for v in entry[2][-100:]:
         try:
             if vmod.in_ranges(ranges, v):
                 return 1.0
@@ -240,7 +246,8 @@ def candidates(entry: dict, cna: str, alias: AliasModel, dictionary: Dictionary)
                 vendors |= dictionary.vendor_tok.get(t, set())
         pt = tokens(entry.get("product"))
         for v in vendors:
-            for vp in dictionary.by_vendor.get(v, [])[:3000]:
+            near = {vp for t in pt for vp in dictionary.product_tok.get((v, t), ())}
+            for vp in near:
                 if jaccard(pt, tokens(vp.split(":", 1)[1])) >= 0.5:
                     add(vp)
         prods = dictionary.by_product.get(np_, [])
