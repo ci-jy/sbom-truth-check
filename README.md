@@ -1,27 +1,27 @@
 # SBOM Truth Check
 
-A command-line auditor for security and compliance analysts. It checks a vendor SBOM (CycloneDX or SPDX) against each of CISA's updated minimum elements, then compares it with the project's lockfile and explains every missing or extra dependency.
+A command-line auditor for security, vulnerability-management and compliance analysts. It checks a vendor SBOM against CISA's minimum elements and against the project's lockfile, and `cpeinfer` proposes NVD CPEs (or abstains) for CVEs that NIST no longer enriches, so CPE-matching scanners stop missing them.
 
 ## Results
 
-- **None of 88 generator SBOMs met CISA's minimum elements.** The 88 SBOMs came from 20 pinned public repositories. Only 21.6% carried component hashes, 13.6% named a component producer and 0% stated a generation context (`results/summary.json`).
-- **Trivy was the most accurate generator: 100% component precision and 99.0% recall** against the lockfile ground truth. With default settings, cyclonedx-npm scored 2.7% precision because it lists dev and test tooling as shipped code (`results/report.md`).
-- **All 13,489 disagreements between an SBOM and its lockfile have a named cause, and 0 are unexplained.** The main causes are dev/test packages included, optional or platform-only packages, duplicate components, unresolved version ranges and edges to the wrong version.
-- **65 pytest tests pass, including Hypothesis planted-error tests.** Each test plants one defect (drops a hash, strips a license, removes a transitive edge, or changes a PURL's case or qualifiers) and checks that the checker reports exactly that defect.
+- **None of 88 generator SBOMs from Syft, Trivy and CycloneDX tools met CISA's minimum elements.** Only 21.6% carried component hashes and 0% stated a generation context (`results/summary.json`).
+- **Recovered NVD CPEs for held-out 2025 CVEs at 97.2% precision, against 83.1% for plain string matching, while more than doubling recall (27.8% vs 12.4%).** Trained on 2023-2024 only, tested on 28,340 NIST-enriched 2025 CVEs (`results/cpeinfer/report.md`).
+- **Proposed CPEs for 4,104 of 27,714 CVEs that NIST left unenriched** (mostly "Deferred", the backlog NVD no longer schedules), at the same 95%-precision operating point.
+- **Explained all 13,489 SBOM-vs-lockfile disagreements by a named cause, with 0 unexplained.** 80 pytest tests pass, including Hypothesis planted-error tests and brute-force checks of version-range translation.
 
-![Per-generator component and edge precision/recall against lockfile ground truth](docs/tool_accuracy.png)
+![Precision and recall of CPE inference on held-out 2025 CVEs against a string-match baseline](docs/cpeinfer_precision_recall.png)
 
-**Stack:** Python 3.11+, CycloneDX 1.5–1.7 JSON, SPDX 2.3 JSON, Package URL (PURL), Syft, Trivy, cyclonedx-npm, cyclonedx-py (cyclonedx-bom), Maven, npm, Poetry, pytest, Hypothesis, matplotlib
+**Stack:** Python 3.11+, pandas, NumPy, ijson, CVE JSON 5 (cvelistV5), NVD CVE 2.0 feeds, NVD CPE Dictionary 2.0, CycloneDX 1.5–1.7, SPDX 2.3, Package URL (PURL), Syft, Trivy, cyclonedx-npm, cyclonedx-py, pytest, Hypothesis, matplotlib
 
 ## Quickstart
 
 ```bash
-python3 -m sbomcheck conform corpus/koa/sboms/syft.cdx.json
 python3 -m sbomcheck diff corpus/koa/sboms/syft.cdx.json corpus/koa/src/package-lock.json
-python3 -m sbomcheck evaluate --corpus corpus --out results --fail-on-unexplained
+python3 -m cpeinfer evaluate --train-years 2023 2024 --test-year 2025 --min-precision 0.95 --must-beat-baseline
+python3 -m cpeinfer resolve CVE-2025-0395 CVE-2025-0638 CVE-2025-27152
 ```
 
-The checker uses only the standard library, so these commands work from a fresh clone. To check a vendor SBOM, pass your own SBOM file and the matching lockfile: `package-lock.json`, `poetry.lock` (with its `pyproject.toml` next to it) or the output of `mvn dependency:tree`.
+The SBOM checker uses only the standard library. `cpeinfer` needs `pip install -r requirements-dev.txt`; on its first run `evaluate` downloads the public inputs (about 70 MB of NVD feeds, an 81 MB CPE dictionary and a sparse cvelistV5 checkout) into `data/`, then takes about 4 minutes and 1.8 GB of memory.
 
 ## Why
 
@@ -95,7 +95,45 @@ sbomcheck/
   | `component_without_purl` | component that cannot be identified |
   | `unexplained` | residue; `--fail-on-unexplained` fails if any remain |
 
-## Full results
+## CVE → CPE inference for unenriched CVEs (`cpeinfer`)
+
+Since spring 2026 NIST no longer enriches most CVEs with CPE data. In the NVD feeds this backlog is marked `Deferred` (27,374 of the unenriched 2023-2025 records here), and only KEV, federal-use and EO 14028 critical software still get CPEs ([Infosecurity Magazine](https://infosecurity-magazine.com/news/nvd-enrichment-premarch-2026), [CSA research note](https://labs.cloudsecurityalliance.org/research/csa-research-note-nist-nvd-enrichment-overhaul-20260429-csa/)). A scanner that matches on CPE silently misses everything else. Guessing `vendor:product` is a precision problem: one wrong CPE raises false alerts across a whole fleet. So the resolver gives a calibrated confidence and abstains below a threshold chosen for 95% precision.
+
+```
+cpeinfer/
+  versions.py   generic version order; CNA versions/lessThan/lessThanOrEqual/changes/defaultStatus -> cpeMatch ranges
+  data.py       streams cvelistV5, NVD CVE 2.0 feeds (ijson) and the CPE dictionary into data/built/
+  resolver.py   alias model, candidate generation, logistic scorer, string-match baseline
+  evaluate.py   time split, threshold choice on validation, metrics, unenriched coverage
+  gaps.py       SBOM PURLs -> CPEs -> CVE hits that CPE-only matching misses
+```
+
+- **Alias model.** For every CVE that NIST enriched in the training window, each CNA affected entry is aligned with the NVD `vendor:product` it describes (the CNA's own `cpes`, a single entry, or the most similar name). The model counts how often each key mapped to each CPE: the normalized vendor+product, the product, CNA+product, and the package URL built from `packageURL`, `collectionURL`+`packageName` or a GitHub `repo` with SBOM Truth Check's PURL canonicalization.
+- **Candidates.** Candidates come from those aliases, from CPEs the CNA listed, and from the NVD CPE dictionary by normalized tokens (exact name, vendor aliases, product-token overlap within the vendor). Deprecated names are followed along their `deprecatedBy` chain to the current name.
+- **Scoring.** A logistic regression (NumPy, Newton's method) over 20 features: alias shares and counts, name similarity, rename flag, popularity, and whether the dictionary versions of the candidate fall inside the CNA's affected range.
+- **No time leakage.** Aliases are learned from CVEs published before 1 July 2024. The scorer and threshold come from the second half of 2024, with 5-fold cross-fitted probabilities; validation precision at threshold 0.91 is 96.1%. For the 2025 test, aliases are re-learned from all of 2023-2024, and the CPE dictionary is cut to entries created before 1 January 2025, so CPEs NIST created while enriching 2025 CVEs are invisible.
+- **Version ranges.** CNA `versions` lists (semver, custom, `lessThan`, `lessThanOrEqual`, `4.19.*` branch bounds, `changes`, `defaultStatus`, GitHub-style `"< 1.8.2"`) become the minimal list of `versionStart*/versionEnd*` ranges. Hypothesis checks that the translated ranges flag exactly the versions a brute-force evaluation of the CNA rules flags.
+
+Held-out 2025 results (`results/cpeinfer/report.md`, `metrics.csv`, `precision_coverage.csv`, `calibration.csv`):
+
+| Field | Resolver precision | Resolver recall | String-match precision | String-match recall |
+|---|---|---|---|---|
+| vendor | 98.7% | 36.5% | 95.3% | 24.0% |
+| vendor:product | 97.2% | 27.8% | 83.1% | 12.4% |
+| version range (exact match with NVD) | 17.1% | 4.9% | 31.4% | 4.7% |
+
+At the baseline's own precision (83.1%) the resolver's recall is 37.2%. Recall is measured against every NIST `vendor:product` pair of the 28,340 test CVEs. This includes CVEs whose CNA wrote `n/a` and products that only got a CPE in 2025, which no method could reach. On correct pairs the translated ranges have a mean Jaccard overlap of 66.8% with NIST's. Exact range agreement is low because NIST often splits, widens or narrows ranges relative to the CNA's statement.
+
+Run it on your own data:
+
+```bash
+python3 -m cpeinfer resolve path/to/CVE-2025-1234.json path/to/cve-dir/ CVE-2025-27152 --json   # proposed configurations, or "abstain" below the threshold
+python3 -m cpeinfer sbom-gaps your-sbom.cdx.json corpus/*/sboms/syft.cdx.json                   # writes results/cpeinfer/sbom_gaps.{csv,md}
+```
+
+`sbom-gaps` reads components through SBOM Truth Check's loader and PURL canonicalization. A component is joined to a CVE when one of the CVE's CNA affected entries has the same canonical package URL, or when both resolve to the same CPE and the component's own resolution clears the threshold. The component's version must also fall inside the translated range. The command then lists the hits that NVD CPE matching would miss, because the CVE is not enriched, its configuration does not name the product, or its range excludes the version. On the corpus's 20 Syft SBOMs, it finds 15 CVE hits among 638 components; 8 of them CPE-only matching misses (`results/cpeinfer/sbom_gaps.md`).
+
+## Full results (SBOM generators)
 
 Generated by `python3 -m sbomcheck evaluate --corpus corpus --out results`. The full report is in [results/report.md](results/report.md), and every individual mismatch with its cause is in `results/mismatches.csv`.
 
@@ -148,12 +186,14 @@ pip install -r requirements-dev.txt   # pytest, hypothesis (+ matplotlib, cyclon
 python3 -m pytest -q
 ```
 
-The suite has 65 tests:
+The suite has 80 tests:
 
 - `tests/test_purl.py`: hand-worked canonicalization cases, covering both PURLs that must be equal and PURLs that must stay distinct.
 - `tests/test_planted.py`: Hypothesis tests. Each one builds a random dependency graph with a matching lockfile and fully conformant CycloneDX and SPDX SBOMs, plants one defect, and asserts that exactly that defect is reported (field, JSON path and cause).
 - `tests/test_lockfiles.py`: resolver and classifier cases on small hand-written lockfiles.
-- `tests/test_cli.py`: end-to-end runs of the CLI on the corpus.
+- `tests/test_cli.py`: end-to-end runs of the CLI on the corpus (the `cpeinfer` run is skipped until `data/` is built).
+- `tests/test_cpeinfer_versions.py`: Hypothesis brute-force agreement between CNA version semantics and translated cpeMatch ranges, plus hand-worked kernel and GitHub-advisory shapes.
+- `tests/test_cpeinfer_alias.py`: planted aliases (a CNA's private vendor/product spelling, a package URL, a renamed CPE) that the resolver must recover, CPE escaping and the dictionary cutoff.
 
 ## Design notes
 
@@ -172,6 +212,10 @@ The suite has 65 tests:
 - The corpus is small for some generators. cyclonedx-py produced SBOMs for only 2 of 7 Poetry projects, and there is one SBOM per tool per repository, all from default settings. Running each tool with its "production only" options would show how much of the gap is configuration rather than capability.
 - All 13,489 mismatches are classified, but the classification is rule-based. It explains the corpus completely and the planted tests check each class, but a new generator behaviour could still land in `unexplained`; the `--fail-on-unexplained` gate exists to surface that case.
 - Conformance checks that the elements are present and well-formed. It does not verify that a hash matches the real artifact or that a license is correct. Downloading artifacts to confirm hashes would be the next step.
-- No vulnerability matching, no container-image SBOMs, no SBOM generation of its own and no web UI; these are out of scope.
+- No vulnerability scanner of its own (`cpeinfer` outputs CPE configurations and a gap list), no LLM or paid API, no container-image SBOMs, no SBOM generation and no web UI; these are out of scope.
+- `cpeinfer` covers about 28% of NIST's `vendor:product` pairs at 97% precision. Most misses are CVEs whose CNA writes `n/a` or free text, or products whose CPE did not exist before the cutoff; inventing new CPE names is out of scope.
+- Exact version-range agreement with NIST is 17%. The translation is faithful to the CNA's statement (Hypothesis-checked), but CNAs and NIST often disagree. For example, pip's CVE-2023-5752 lists only `23.3` as unaffected with `defaultStatus: affected`, so pip 26.2.1 counts as affected. Learning per-CNA conventions would be the next step.
+- The SBOM join maps a component to a CPE with the scorer trained on CNA entries and does not check the ecosystem. It maps PyPI `babel` to `babeljs:babel`, which shows up in the gap list. An ecosystem guard and a component-trained scorer would fix this.
+- CNA records are taken from cvelistV5 as of the download date. A CNA may have revised an affected block after NIST enriched the CVE, which slightly favours the training labels.
 
-Project period: 2026-09-24 to 2026-09-29.
+Project period: 2026-09-24 to 2026-09-29; `cpeinfer` added 2026-10-09.
