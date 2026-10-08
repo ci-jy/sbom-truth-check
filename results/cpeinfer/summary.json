@@ -8,28 +8,28 @@
  "threshold": 0.91,
  "validation": {
   "vendor": {
-   "precision": 0.9928459256674228,
-   "recall": 0.3899129719728637,
-   "predicted": 5731,
-   "correct": 5690,
+   "precision": 0.9928757602085143,
+   "recall": 0.3915575961077229,
+   "predicted": 5755,
+   "correct": 5714,
    "truth": 14593
   },
   "vendor_product": {
-   "precision": 0.9609146771431449,
-   "recall": 0.21690883871114447,
-   "predicted": 9927,
-   "correct": 9539,
+   "precision": 0.9608394417110152,
+   "recall": 0.21759101348432136,
+   "predicted": 9959,
+   "correct": 9569,
    "truth": 43977
   },
   "version_range": {
-   "precision": 0.15472952553641584,
-   "recall": 0.03492734838665666,
-   "predicted": 9927,
-   "correct": 1536,
+   "precision": 0.15443317602168893,
+   "recall": 0.034972826704868454,
+   "predicted": 9959,
+   "correct": 1538,
    "truth": 43977
   },
-  "version_overlap_mean": 0.6484407705651744,
-  "cves_with_prediction": 5728
+  "version_overlap_mean": 0.6485488140621444,
+  "cves_with_prediction": 5751
  },
  "test": {
   "vendor": {
@@ -132,25 +132,25 @@
   }
  },
  "scorer_weights": {
-  "bias": -4.6479004206879715,
-  "alias_vp_share": 0.06753934251520777,
-  "alias_vp_logc": -0.5258612169653185,
-  "alias_p_share": 3.129243245995722,
-  "alias_cp_share": -0.20071792664577542,
-  "alias_cp_logc": 0.12367743806208802,
-  "alias_pkg_share": 1.977515540597831,
-  "alias_pkg_logc": -0.191570717609145,
-  "alias_vendor_share": 3.5931098267990045,
-  "cna_cpe": -0.7247959138830065,
-  "exact_norm": 0.8536484775689238,
-  "vendor_sim": -0.7730486677176109,
-  "product_sim": 2.0342122848937954,
-  "product_exact": -0.11212829264566955,
-  "in_dictionary": -1.5741405330350835,
-  "renamed": 0.20357926283564906,
-  "popularity": 0.7944862581622734,
-  "n_candidates": -0.3781568589881395,
-  "version_overlap": 0.5106191472429866,
-  "dict_only": 0.5638245238726917
+  "bias": -4.647900420687988,
+  "alias_vp_share": 0.06753934251510871,
+  "alias_vp_logc": -0.525861216965315,
+  "alias_p_share": 3.129243245995741,
+  "alias_cp_share": -0.2007179266456853,
+  "alias_cp_logc": 0.12367743806206975,
+  "alias_pkg_share": 1.9775155405978317,
+  "alias_pkg_logc": -0.19157071760915645,
+  "alias_vendor_share": 3.5931098267991546,
+  "cna_cpe": -0.7247959138830959,
+  "exact_norm": 0.8536484775689451,
+  "vendor_sim": -0.7730486677176679,
+  "product_sim": 2.0342122848940205,
+  "product_exact": -0.11212829264576901,
+  "in_dictionary": -1.5741405330353158,
+  "renamed": 0.2035792628356167,
+  "popularity": 0.7944862581622947,
+  "n_candidates": -0.3781568589881355,
+  "version_overlap": 0.5106191472430173,
+  "dict_only": 0.5638245238726685
  }
 }

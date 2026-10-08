@@ -219,3 +219,5 @@ The suite has 80 tests:
 - CNA records are taken from cvelistV5 as of the download date. A CNA may have revised an affected block after NIST enriched the CVE, which slightly favours the training labels.
 
 Project period: 2026-09-24 to 2026-09-29; `cpeinfer` added 2026-10-09.
+
+Project period: 2026-09-24 to 2026-10-08.
