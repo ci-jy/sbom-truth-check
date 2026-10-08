@@ -1,0 +1,9 @@
+sbom,purl,version,cve,cpe,confidence,matched_by,nvd_status,reason
+corpus/cleo/sboms/syft.cdx.json,pkg:pypi/babel,2.17,CVE-2025-27789,cpe:2.3:a:babeljs:babel:2.17,0.982,cpe,Deferred,no NVD CPE configuration
+corpus/cleo/sboms/syft.cdx.json,pkg:pypi/pytest,8.4.2,CVE-2025-71176,,0.0,purl,Deferred,no CPE
+corpus/poetry-core/sboms/syft.cdx.json,pkg:pypi/pip,26.2.1,CVE-2023-5752,cpe:2.3:a:pypa:pip:26.2.1,0.994,purl,Modified,NVD range excludes this version
+corpus/rich/sboms/syft.cdx.json,pkg:pypi/pytest,7.4.4,CVE-2025-71176,,0.0,purl,Deferred,no CPE
+corpus/textual/sboms/syft.cdx.json,pkg:pypi/babel,2.17,CVE-2025-27789,cpe:2.3:a:babeljs:babel:2.17,0.982,cpe,Deferred,no NVD CPE configuration
+corpus/textual/sboms/syft.cdx.json,pkg:pypi/pytest,8.4.2,CVE-2025-71176,,0.0,purl,Deferred,no CPE
+corpus/tomlkit/sboms/syft.cdx.json,pkg:pypi/babel,2.14,CVE-2025-27789,cpe:2.3:a:babeljs:babel:2.14,0.982,cpe,Deferred,no NVD CPE configuration
+corpus/tomlkit/sboms/syft.cdx.json,pkg:pypi/pytest,7.4.4,CVE-2025-71176,,0.0,purl,Deferred,no CPE
